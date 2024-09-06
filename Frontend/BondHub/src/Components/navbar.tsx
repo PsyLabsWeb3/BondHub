@@ -6,6 +6,13 @@ import logo from "../assets/images/logo.png";
 import { ethers } from "ethers";
 
 const NavBar: React.FC = () => {
+  function shortenString(str: string): string {
+    if (str.length > 4) {
+      return `...${str.slice(-4)}`;
+    }
+    return str;
+  }
+
   const navStyle = {
     display: "flex",
     justifyContent: "space-between",
@@ -72,7 +79,7 @@ const NavBar: React.FC = () => {
         </Link>
       </div>
       <div style={linkStyle}>
-        <p>{address}</p>
+        <p>{shortenString(address)}</p>
       </div>
       <button onClick={loginWithMetaMask}>
         {" "}
